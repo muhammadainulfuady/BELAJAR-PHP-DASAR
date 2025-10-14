@@ -11,7 +11,7 @@ $mahasiswa = query("SELECT * FROM data_mhs");
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Halaman Admin</title>
+  <title>Halaman Utama</title>
   <style>
     * {
       padding: 0;
@@ -50,12 +50,30 @@ $mahasiswa = query("SELECT * FROM data_mhs");
     .container table th {
       text-transform: uppercase;
     }
+
+    .link-tambah-data {
+      background-color: lightblue;
+      padding: 12px;
+      text-align: right;
+    }
+
+    .link-tambah-data a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .link-tambah-data a:hover {
+      color: black;
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
     <h1 class="judul">Daftar Mahasiswa</h1>
+    <div class="link-tambah-data">
+      <a href="tambah.php">Tambah data mahasiswa</a>
+    </div>
     <table border="1" cellpadding="20" cellspacing="0">
       <tr>
         <th>No.</th>

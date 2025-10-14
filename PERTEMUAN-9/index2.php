@@ -1,8 +1,25 @@
 <?php
-include "functions.php";
+// mysqli_report(MYSQLI_REPORT_OFF);
+
+// koneksi ke database
+$host = "localhost";
+$user = "root";
+$passwrd = "";
+$db_name = "mahasiswa";
+$conn = mysqli_connect($host, $user, $passwrd, $db_name);
 
 // ambil data dari mahasiswa
-$mahasiswa = query("SELECT * FROM data_mhs");
+$result = mysqli_query($conn, "SELECT * FROM data_mhs");
+
+// ambil data (fetch) mahasiswa dari object result
+// 1. mysqli_fetch_row(), mengembalikan nilai numerik
+// 2. mysqli_fetch_assoc(), mengembalikan nilai associatif
+// 3. mysqli_fetch_array(), bisa mengembalikan nilai numerik dan juga nilai associatif
+// 4. mysqli_fetch_object(), mengembalikan object
+
+// while($mhs = mysqli_fetch_assoc($result)) {
+//   var_dump($mhs);
+// }
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +63,6 @@ $mahasiswa = query("SELECT * FROM data_mhs");
       background-color: orange;
       color: white;
     }
-
-    .container table th {
-      text-transform: uppercase;
-    }
   </style>
 </head>
 
@@ -67,7 +80,7 @@ $mahasiswa = query("SELECT * FROM data_mhs");
         <th>Jurusan</th>
       </tr>
       <?php $iterasi = 0 ?>
-      <?php foreach($mahasiswa as $row) :?>
+      <?php while($row = mysqli_fetch_assoc($result)) :?>
       <tr>
         <td><?= $iterasi += 1 ?></td>
         <td><a href="">Hapus</a> | <a href="">Ubah</a></td>
@@ -77,7 +90,7 @@ $mahasiswa = query("SELECT * FROM data_mhs");
         <td><?= $row['email'] ?></td>
         <td><?= $row['jurusan'] ?></td>
       </tr>
-      <?php endforeach ?>
+      <?php endwhile ?>
     </table>
   </div>
   <script src="index.js"></script>
