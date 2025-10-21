@@ -1,5 +1,5 @@
 <?php
-include "functions.php";
+require "functions.php";
 
 // ambil data dari mahasiswa
 $mahasiswa = query("SELECT * FROM data_mhs");
@@ -39,8 +39,8 @@ $mahasiswa = query("SELECT * FROM data_mhs");
       <tr>
         <td><?= $iterasi += 1 ?></td>
         <td>
-          <a href="hapus.php?id=<?= $row["id"];?>" class="del" onclick="return confirm('yakin di hapus?')">Hapus</a> | 
-          <a href="ubah.php?id=<?= $row["id"];?>" class="ubah">Ubah</a>
+          <a href="hapus.php?id=<?= $row["id"]?>" class="del" onclick="return confirm('yakin di hapus?')">Hapus</a> | 
+          <a href="ubah.php?id=<?= $row["id"]?>" class="ubah">Ubah</a>
         </td>
         <td>
           <img src="images/<?= $row['gambar'] ?>" alt="" width="100px" />

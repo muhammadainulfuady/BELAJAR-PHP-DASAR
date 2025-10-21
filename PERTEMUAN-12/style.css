@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: grey;
+}
+
+.container h1.judul {
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+}
+
+.container table {
+  margin: 0 auto;
+  background-color: lightblue;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.container table td,
+th {
+  padding: 0.5rem;
+  text-align: center;
+  color: lightslategrey;
+}
+
+.container table th {
+  background-color: orange;
+  color: white;
+}
+
+.container table th {
+  text-transform: uppercase;
+}
+
+.container img {
+  border-radius: 20px 5px 20px 5px;
+}
+
+.link-tambah-data {
+  background-color: lightblue;
+  padding: 12px;
+  text-align: right;
+}
+
+.link-tambah-data a {
+  text-decoration: none;
+  color: white;
+}
+
+.link-tambah-data a:hover {
+  color: black;
+}
+
+table.tbl a.ubah {
+  text-decoration: none;
+  color: lightgreen;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+}
+
+table.tbl a.del {
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+}
+
+.searching {
+  display: flex;
+  justify-content: right;
+  background-color: lightgreen;
+  padding: 10px;
+}
+
+.searching form, input, button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 30px;
+  border: none;
+}
+
+.searching button {
+  padding: 10px;
+  background-color: lightcoral;
+  border-radius: 0px 20px 0px 20px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.searching button i {
+  color: white;
+  font-size: 20px;
+}
+
+.searching input {
+  padding: 10px;
+  background-color: lightblue;
+  border-radius: 20px 0px 20px 0px;
+  color: black;
+  font-size: 15px;
+  width: 400px;
+}
+
+.searching placeholder {
+  color: white;
+}

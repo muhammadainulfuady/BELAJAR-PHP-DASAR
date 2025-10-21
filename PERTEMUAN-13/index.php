@@ -1,8 +1,13 @@
 <?php
-include "functions.php";
+require "functions.php";
 
 // ambil data dari mahasiswa
-$mahasiswa = query("SELECT * FROM data_mhs");
+$mahasiswa = query("SELECT * FROM data_mhs ORDER BY id DESC");
+
+// jika tombol cari di tekan
+if(isset($_POST['cari'])) {
+  $mahasiswa = cari($_POST['keywoard']);
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +18,7 @@ $mahasiswa = query("SELECT * FROM data_mhs");
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Halaman Utama</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-
-  </style>
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -23,6 +26,12 @@ $mahasiswa = query("SELECT * FROM data_mhs");
     <h1 class="judul">Daftar Mahasiswa</h1>
     <div class="link-tambah-data">
       <a href="tambah.php">Tambah data mahasiswa</a>
+    </div>
+    <div class="searching">
+      <form action="index.php" method="POST">
+          <input type="text" name="keywoard" id="keywoard" autofocus placeholder="Silahkan cari data anda..." autocomplete="off">
+          <button type="submit" name="cari"><i class='bxr  bx-search'></i> Cari</button>
+      </form>
     </div>
     <table border="1" cellpadding="20" cellspacing="0" class="tbl">
       <tr>
@@ -39,8 +48,8 @@ $mahasiswa = query("SELECT * FROM data_mhs");
       <tr>
         <td><?= $iterasi += 1 ?></td>
         <td>
-          <a href="hapus.php?id=<?= $row["id"];?>" class="del" onclick="return confirm('yakin di hapus?')">Hapus</a> | 
-          <a href="ubah.php?id=<?= $row["id"];?>" class="ubah">Ubah</a>
+          <a href="hapus.php?id=<?= $row["id"]?>" class="del" onclick="return confirm('yakin di hapus?')">Hapus</a> | 
+          <a href="ubah.php?id=<?= $row["id"]?>" class="ubah">Ubah</a>
         </td>
         <td>
           <img src="images/<?= $row['gambar'] ?>" alt="" width="100px" />
