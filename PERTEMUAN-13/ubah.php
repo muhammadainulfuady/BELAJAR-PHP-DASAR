@@ -92,6 +92,12 @@ if(isset($_POST['submit']) ) {
 		    transition: 0.3s;
 		}
 
+		.container img {
+  			border-radius: 20px 5px 20px 5px;
+  			margin-bottom: 10px;
+  			width: 200px;
+		}
+
 		button:hover {
 		    background: darkblue;
 		}
@@ -100,8 +106,9 @@ if(isset($_POST['submit']) ) {
 <body>
 	<div class="container">
 		<h1>Ubah Data Mahasiswa</h1>
-		<form action="" method="post">
-			<input type="hidden" name="id" value="<?= $id ?>">
+		<form action="" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<?= $ambil_data["id"] ?>">
+			<input type="hidden" name="gambarLama" value="<?= $ambil_data['gambar'] ?>">
 				<div class="input-user">
 					<label for="nrp">Nrp : </label>
 					<input type="text" name="nrp" id="nrp" value="<?= $ambil_data['nrp'] ?>">
@@ -124,7 +131,8 @@ if(isset($_POST['submit']) ) {
 
 				<div class="input-user">
 					<label for="gambar">Gambar : </label>
-					<input type="text" name="gambar" id="gambar" value="<?= $ambil_data['gambar'] ?>">
+					<img src="images/<?= $ambil_data['gambar'] ?>" alt="eror">
+					<input type="file" name="gambar" id="gambar">
 				</div>
 
 			<button type="submit" name="submit">Ubah Data</button>

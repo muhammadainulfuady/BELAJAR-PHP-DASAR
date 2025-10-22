@@ -97,7 +97,7 @@ if(isset($_POST['submit']) ) {
 <body>
 	<div class="container">
 		<h1>Tambah Data Mahasiswa</h1>
-		<form action="" method="post">
+		<form action="" method="post" enctype="multipart/form-data">
 			<div class="input-user">
 				<label for="nrp">Masukkan nrp terbaru : </label>
 				<input type="text" name="nrp" id="nrp">
@@ -120,7 +120,7 @@ if(isset($_POST['submit']) ) {
 
 			<div class="input-user">
 				<label for="gambar">Masukkan Gambar terbaru : </label>
-				<input type="text" name="gambar" id="gambar">
+				<input type="file" name="gambar" id="gambar">
 			</div>
 
 			<button type="submit" name="submit">Simpan Data</button>
