@@ -4,7 +4,7 @@
     !isset($_GET['email']) ||
     !isset($_GET['jurusan'])
 ) {
-    header("Location: latihan1.php");
+    header("Location: latihan-1.php");
     exit;
 }
 ?>
@@ -26,7 +26,7 @@
         <li><?= $_GET['email'] ?></li>
         <li><?= $_GET['jurusan'] ?></li>
     </ul>
-    <a href="latihan1.php">Kembali</a>
+    <a href="latihan-1.php">Kembali</a>
 </body>
 
 </html>
