@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['login'])) {
+  header('Location:login.php');
+  exit();
+}
 require "functions.php";
 
 // ambil data dari mahasiswa
@@ -9,7 +14,6 @@ if (isset($_POST['cari'])) {
   $mahasiswa = cari($_POST['keywoard']);
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +30,9 @@ if (isset($_POST['cari'])) {
     <h1 class="judul">Daftar Mahasiswa</h1>
     <div class="link-tambah-data">
       <a href="tambah.php">Tambah data mahasiswa</a>
+    </div>
+    <div class="link-tambah-data">
+      <a href="logout.php">Logout</a>
     </div>
     <div class="searching">
       <form action="index.php" method="POST" class="search-form"> <input type="text" name="keywoard" id="keywoard"

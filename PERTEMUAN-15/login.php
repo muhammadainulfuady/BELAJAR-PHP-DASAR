@@ -1,13 +1,19 @@
 <?php
+session_start();
 require_once "functions.php";
-if (isset($_POST['register'])) {
-    if (registrasi($_POST) > 0) {
-        echo "<script>
-		    alert('Data berhasil di tambah');
-        </script>";
-    } else {
-        echo mysqli_error($conn);
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row['password']))
+            ; {
+            header("Location:index.php");
+            exit();
+        }
     }
+    $eror = true;
 }
 ?>
 
@@ -17,13 +23,14 @@ if (isset($_POST['register'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Registrasi</title>
+    <title>Halaman Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container registrasi-container">
-        <h1>Halaman Registrasi</h1>
+        <h1>Halaman Login</h1>
+
         <form action="" method="POST" class="form-container">
             <ul>
                 <li class="form-group">
@@ -34,13 +41,13 @@ if (isset($_POST['register'])) {
                     <label for="password">Password :</label>
                     <input type="text" name="password" id="password">
                 </li>
+                <li>Belum punya akun ? <a href="registrasi.php">Registrasi</a></li>
                 <li class="form-group">
-                    <label for="password2">Konfirmasi password :</label>
-                    <input type="text" name="password2" id="password2">
+                    <button type="submit" name="login" class="btn btn-primary">Login</button>
                 </li>
-                <li class="form-group">
-                    <button type="submit" name="register" class="btn btn-primary">Register</button>
-                </li>
+                <?php if (isset($eror)): ?>
+                    <p>Username atau password salah</p>
+                <?php endif ?>
             </ul>
         </form>
     </div>

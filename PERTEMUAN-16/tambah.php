@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['login'])) {
+	header('Location:login.php');
+	exit();
+}
 mysqli_report(MYSQLI_REPORT_OFF);
 include "functions.php";
 

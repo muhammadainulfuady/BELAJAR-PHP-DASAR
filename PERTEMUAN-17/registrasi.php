@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['login'])) {
+    header('Location:login.php');
+    exit();
+}
 require_once "functions.php";
 if (isset($_POST['register'])) {
     if (registrasi($_POST) > 0) {
@@ -38,6 +43,7 @@ if (isset($_POST['register'])) {
                     <label for="password2">Konfirmasi password :</label>
                     <input type="text" name="password2" id="password2">
                 </li>
+                <li>Sudah punya akun ? <a href="login.php">Login</a></li>
                 <li class="form-group">
                     <button type="submit" name="register" class="btn btn-primary">Register</button>
                 </li>
