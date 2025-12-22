@@ -14,6 +14,9 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $row['password']))
             ; {
             $_SESSION['login'] = true;
+            if (isset($_POST['remember'])) {
+                setcookie('login', true, time() + 60);
+            }
             header("Location:index.php");
             exit();
         }
@@ -45,6 +48,10 @@ if (isset($_POST['login'])) {
                 <li class="form-group">
                     <label for="password">Password :</label>
                     <input type="text" name="password" id="password">
+                </li>
+                <li class="form-group">
+                    <label for="remember">Remember me <input type="checkbox" name="remember" id="remember">
+                    </label>
                 </li>
                 <li>Belum punya akun ? <a href="registrasi.php">Registrasi</a></li>
                 <li class="form-group">
