@@ -7,13 +7,14 @@ Mengatur hak akses property & method
   | protected | class & turunan
   | private | hanya class itu
 
-class Kendaraan {
-public $merk;
-protected $mesin;
-private $nomorRangka;
+```class Kendaraan {
+    public $merk;
+    protected $mesin;
+    private $nomorRangka;
 }
 
 Catatan
 
 - private tidak diwariskan
 - protected diwariskan tapi tidak bisa diakses dari luar
+```
