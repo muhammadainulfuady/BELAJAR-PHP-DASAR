@@ -9,14 +9,20 @@ class Produk
 {
     public $judul,
     $penulis,
-    $penerbit,
-    $harga;
+    $penerbit;
+    protected $diskon = 0;
+    private $harga;
     public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0)
     {
         $this->judul = $judul;
         $this->penulis = $penulis;
         $this->penerbit = $penerbit;
         $this->harga = $harga;
+    }
+    public function getHarga()
+    {
+        $hargaDiskon = $this->harga - ($this->harga * $this->diskon / 100);
+        return $hargaDiskon;
     }
     public function getLabel()
     {
@@ -44,12 +50,10 @@ class Komik extends Produk
         $this->jumlahHalaman = $jumlahHalaman;
 
     }
-    public function detailsKomik()
+    public function detailsProduk()
     {
-        $jumlahHalaman = $this->jumlahHalaman;
         $temp = parent::detailsProduk();
-        $str = "Komik : {$temp} - {$jumlahHalaman} Halaman.";
-        return $str;
+        return "Komik : {$temp} - {$this->jumlahHalaman} Halaman.";
     }
 }
 
@@ -59,23 +63,24 @@ class Game extends Produk
     public $waktuMain;
     public function __construct($judul, $penulis, $penerbit, $harga, $waktuMain)
     {
-
         parent::__construct($judul, $penulis, $penerbit, $harga);
-
         $this->waktuMain = $waktuMain;
-
     }
-    public function detailsGame()
+    public function setDiskon($diskon)
     {
-        $waktuMain = $this->waktuMain;
+        $this->diskon = $diskon;
+    }
+
+    public function detailsProduk()
+    {
         $temp = parent::detailsProduk();
-        $str = "Game : {$temp} ~ {$waktuMain} Jam.";
-        return $str;
+        return "Game : {$temp} ~ {$this->waktuMain} Jam.";
     }
 }
 
 class CetakInfoProduk
 {
+
     public function cetak(Produk $produk)
     {
         $str = "{$produk->judul} | {$produk->getLabel()} (Rp {$produk->harga})";
@@ -84,9 +89,11 @@ class CetakInfoProduk
 }
 
 $produk1 = new Komik("One Piece", "Echiro Oda", "Mangatonn", 300000, 100);
-$produk2 = new Game("Mobile Legends", "Gatau", "Moonton", 20000, 50);
-echo $produk1->detailsKomik();
+$produk2 = new Game("Mobile Legends", "Gatau", "Moonton", 250000, 50);
+echo $produk1->detailsProduk();
 echo "<br>";
-echo $produk2->detailsGame();
-
+echo $produk2->detailsProduk();
+echo "<hr>";
+echo $produk2->setDiskon(50);
+echo $produk2->getHarga();
 ?>

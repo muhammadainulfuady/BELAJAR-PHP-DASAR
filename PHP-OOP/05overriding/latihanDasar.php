@@ -44,10 +44,10 @@ class Komik extends Produk
         $this->jumlahHalaman = $jumlahHalaman;
 
     }
-    public function detailsKomik()
+    public function detailsProduk()
     {
         $temp = parent::detailsProduk();
-        return "Game : {$temp} - {$this->waktuMain} Jam.";
+        return "Komik : {$temp} - {$this->jumlahHalaman} Halaman.";
     }
 }
 
@@ -64,7 +64,7 @@ class Game extends Produk
     public function detailsProduk()
     {
         $temp = parent::detailsProduk();
-        return "Komik : {$temp} - {$this->jumlahHalaman} Halaman.";
+        return "Game : {$temp} ~ {$this->waktuMain} Jam.";
     }
 }
 
