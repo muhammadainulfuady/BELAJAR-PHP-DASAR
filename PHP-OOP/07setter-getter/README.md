@@ -112,9 +112,10 @@ echo $cart->getTotalHarga();
 ?>
 ```
 
-📒 Catatan OOP: Setter & Getter (Manual Version)📌 Konsep DasarDalam OOP, kita tidak boleh membiarkan isi "jeroan" class (property) diacak-acak dari luar. Maka dari itu, property dibuat private, lalu kita buatkan pintu resmi untuk mengaksesnya:Getter: Pintu keluar (mengambil data).Setter: Pintu masuk (mengubah data + validasi).🛠️ Struktur Kode StandarPHP<?php
+- 📒 Catatan OOP: Setter & Getter (Manual Version)📌 Konsep DasarDalam OOP, kita tidak boleh membiarkan isi "jeroan" class (property) diacak-acak dari luar. Maka dari itu, property dibuat private, lalu kita buatkan pintu resmi untuk mengaksesnya:Getter: Pintu keluar (mengambil data).Setter: Pintu masuk (mengubah data + validasi).🛠️ Struktur Kode StandarPHP
 
 ```
+<?php
 class Produk {
 private $nama;
 private $harga;
