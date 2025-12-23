@@ -3,19 +3,19 @@
 - Property → data / atribut object
 - Method → perilaku / aksi object
 
+```
 class Mobil {
-public $merk;
-public $warna;
-
+    public $merk;
+    public $warna;
     public function jalan() {
         return "Mobil berjalan";
     }
-
 }
 
 $mobil = new Mobil();
 $mobil->merk = "Toyota";
 echo $mobil->jalan();
+```
 
 Catatan
 
