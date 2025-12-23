@@ -3,17 +3,19 @@
 - Method child menimpa method parent
 - Bisa panggil method parent pakai parent::
 
-class Produk {
-public function info() {
-return "Produk umum";
+```class Produk {
+        public function info() {
+        return "Produk umum";
+    }
 }
-}
+```
 
-class Komik extends Produk {
-public function info() {
-return "Komik khusus";
+```class Komik extends Produk {
+        public function info() {
+        return "Komik khusus";
+    }
 }
-}
+```
 
 Catatan
 
