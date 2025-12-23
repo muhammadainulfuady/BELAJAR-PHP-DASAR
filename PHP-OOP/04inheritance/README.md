@@ -3,13 +3,16 @@
 - Class turunan mewarisi property & method parent
 - Gunakan extends
 
+```
 class User {
-public $nama;
+    public $nama;
 }
 
 class Admin extends User {
-public $role = "admin";
+    public $role = "admin";
 }
+
+```
 
 Catatan
 
